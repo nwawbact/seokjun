@@ -1,2 +1,4 @@
 # seokjun
-thisisforseokjun
+If you watched this page, 
+
+fuck you
