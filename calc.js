@@ -28,10 +28,37 @@ function add() {
         currentNumber = '';
     }
     else{
-        currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-        currentNumber = '+';
-        printCalcScript()
-        currentNumber = ''; 
+        switch (currentOperater){
+            case '+':
+                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '+';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '-':
+                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '-';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case 'x':
+                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = 'x';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '/':
+                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '/';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            
+        }
     }
     currentOperater = '+';
     
@@ -52,10 +79,37 @@ function subtract(){
         currentNumber = '';
     }
     else{
-        currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-        currentNumber = '-'; 
-        printCalcScript()
-        currentNumber = ''; 
+        switch (currentOperater){
+            case '+':
+                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '+';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '-':
+                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '-';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case 'x':
+                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = 'x';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '/':
+                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '/';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            
+        }
     }
     currentOperater = '-';
     
@@ -74,10 +128,37 @@ function multiple(){
         currentNumber = '';
     }
     else{
-        currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-        currentNumber = 'x'; 
-        printCalcScript()
-        currentNumber = ''; 
+        switch (currentOperater){
+            case '+':
+                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '+';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '-':
+                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '-';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case 'x':
+                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = 'x';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '/':
+                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '/';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            
+        }
     }
     currentOperater = 'x';
     
@@ -96,10 +177,37 @@ function divide(){
         currentNumber = '';
     }
     else{
-        currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-        currentNumber = '/'; 
-        printCalcScript()
-        currentNumber = ''; 
+        switch (currentOperater){
+            case '+':
+                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '+';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '-':
+                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '-';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case 'x':
+                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = 'x';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            case '/':
+                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+                console.log(currentResult);
+                currentNumber = '/';
+                printCalcScript()
+                currentNumber = '';
+                break;
+            
+        }
     }
     currentOperater = '/';
     
@@ -115,22 +223,30 @@ function printCalcResult(){
         case '+':
             currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
             console.log(currentResult);
+            currentNumber = '+';
             printCalcScript()
+            currentNumber = '';
             break;
         case '-':
             currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
             console.log(currentResult);
+            currentNumber = '-';
             printCalcScript()
+            currentNumber = '';
             break;
         case 'x':
             currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
             console.log(currentResult);
+            currentNumber = 'x';
             printCalcScript()
+            currentNumber = '';
             break;
         case '/':
             currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
             console.log(currentResult);
+            currentNumber = '/';
             printCalcScript()
+            currentNumber = '';
             break;
         
     }
