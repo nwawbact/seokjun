@@ -39,21 +39,21 @@ function add() {
             case '-':
                 currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '-';
+                currentNumber = '+';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case 'x':
                 currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = 'x';
+                currentNumber = '+';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case '/':
                 currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '/';
+                currentNumber = '+';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -83,7 +83,7 @@ function subtract(){
             case '+':
                 currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '+';
+                currentNumber = '-';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -97,14 +97,14 @@ function subtract(){
             case 'x':
                 currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = 'x';
+                currentNumber = '-';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case '/':
                 currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '/';
+                currentNumber = '-';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -132,14 +132,14 @@ function multiple(){
             case '+':
                 currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '+';
+                currentNumber = 'x';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case '-':
                 currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '-';
+                currentNumber = 'x';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -153,7 +153,7 @@ function multiple(){
             case '/':
                 currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '/';
+                currentNumber = 'x';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -181,21 +181,21 @@ function divide(){
             case '+':
                 currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '+';
+                currentNumber = '/';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case '-':
                 currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = '-';
+                currentNumber = '/';
                 printCalcScript()
                 currentNumber = '';
                 break;
             case 'x':
                 currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
                 console.log(currentResult);
-                currentNumber = 'x';
+                currentNumber = '/';
                 printCalcScript()
                 currentNumber = '';
                 break;
@@ -269,7 +269,7 @@ function printCalcScript(){
 }
 
 
-for (let i = 0 ; i < 9 ; i++){
+for (let i = 1 ; i <= 9 ; i++){
     const numberButton = document.getElementById(`${i}`);
     numberButton.addEventListener('click', function() {
         
@@ -287,5 +287,7 @@ for (let i = 0 ; i < 9 ; i++){
 
 
 console.log(currentNumber);
+
+
 
 
