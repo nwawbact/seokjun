@@ -23,8 +23,8 @@ function operationProcess(operater){
     if (temp === 0){
         if (currentNumber === 0 || currentNumber === ''){
             alert('지원되지 않는 수식입니다.');
-            currentResult = 0;
-            currentNumber = 0;
+            currentResult = '';
+            currentNumber = '';
             printCalcScript();
         }
         currentResult = currentNumber;
