@@ -1,8 +1,17 @@
-let currentNumber = '';
 const calcResult = document.getElementById('calcResult');
+const logDescription = document.getElementById('logwrite');
+
+let currentNumber = '';
 let resultScript = '';
 let currentResult = '';
-let currentOperater = '';
+let currentOperator = '';
+let temp = 0;
+let printBool = 0;
+let tempCurrentResult;
+let tempCurrentNumber;
+let tempCurrentOperator;
+
+
 const addBtn = document.getElementById('+');
 const subtractBtn = document.getElementById('-');
 const multipleBtn = document.getElementById('x');
@@ -10,171 +19,107 @@ const divideBtn = document.getElementById('/');
 const resultBtn = document.getElementById('=');
 const removeBtn = document.getElementById('c');
 
-removeBtn.addEventListener('click', removeAll);
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtract);
-multipleBtn.addEventListener('click', multiple);
-divideBtn.addEventListener('click', divide);
+
+addBtn.addEventListener('click', () => operationProcess('+'));
+subtractBtn.addEventListener('click', () => operationProcess('-'));
+multipleBtn.addEventListener('click', () => operationProcess('x'));
+divideBtn.addEventListener('click', () => operationProcess('/'));
 resultBtn.addEventListener('click', printCalcResult);
+removeBtn.addEventListener('click', removeAll);
 
-let temp = 0;
+for (let i = 0; i <= 9; i++) {
+  const numberButton = document.getElementById(`${i}`);
+  numberButton.addEventListener('click', () => {
+    currentNumber += i;
+    printCalcScript();
+  });
+}
 
-function operationProcess(operater){
-    if (temp === 0){
-        if (currentNumber === 0 || currentNumber === ''){
-            alert('지원되지 않는 수식입니다.');
-            currentResult = '';
-            currentNumber = '';
-            printCalcScript();
-        }
-        currentResult = currentNumber;
-        temp++;
-        currentNumber = `${operater}`;
-        printCalcScript()
-        currentNumber = '';
+
+function operationProcess(operator) {
+  if (temp === 0) {
+    if (currentNumber === '' || currentNumber === '0') {
+      alert('지원되지 않는 수식입니다.');
+      removeAll();
+      return;
     }
-    else{
-
-        if (currentNumber !== ''){
-            switch (currentOperater){
-                case '+':
-                    currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-                    console.log(currentResult);
-                    break;
-                case '-':
-                    currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-                    console.log(currentResult);
-                    break;
-                case 'x':
-                    currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-                    console.log(currentResult);
-                    break;
-                case '/':
-                    currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-                    console.log(currentResult);
-                    break;
-                
-            }
-        
-
-        }
-        
-        
-    }
-    currentOperater = `${operater}`;
-    currentNumber = `${operater}`;
-    printCalcScript()
+    currentResult = currentNumber;
+    temp++;
+    currentNumber = operator;
+    printCalcScript();
     currentNumber = '';
-    console.log(currentResult);
-        
-
-}
-
-function add() {
-    operationProcess('+');
-}
-function subtract(){
-   operationProcess('-');
-}
-function multiple(){
-    operationProcess('x');
-}
-function divide(){
-    operationProcess('/');
-}
-let printbool = 0;
-let tempcurrentResult;
-let tempcurrentNumber;
-let tempcurrentOperater;
-function printCalcResult(){
-
-    tempcurrentResult = currentResult;
-    tempcurrentNumber = currentNumber;
-    tempcurrentOperater = currentOperater;
-    
-    printbool = 1;
-    
-    
-    switch (tempcurrentOperater){
+  } else {
+    if (currentNumber !== '') {
+      switch (currentOperator) {
         case '+':
-            tempcurrentResult = parseFloat(tempcurrentResult) + parseFloat(tempcurrentNumber);
-            console.log(tempcurrentResult);
-            tempcurrentNumber = '+';
-            printCalcScript()
-            tempcurrentNumber = '';
-            break;
+          currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+          break;
         case '-':
-            tempcurrentResult = parseFloat(tempcurrentResult) - parseFloat(tempcurrentNumber);
-            console.log(tempcurrentResult);
-            tempcurrentNumber = '-';
-            printCalcScript()
-            tempcurrentNumber = '';
-            break;
+          currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+          break;
         case 'x':
-            tempcurrentResult = parseFloat(tempcurrentResult) * parseFloat(tempcurrentNumber);
-            console.log(tempcurrentResult);
-            tempcurrentNumber = 'x';
-            printCalcScript()
-            tempcurrentNumber = '';
-            break;
+          currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+          break;
         case '/':
-            tempcurrentResult = parseFloat(tempcurrentResult) / parseFloat(tempcurrentNumber);
-            console.log(tempcurrentResult);
-            tempcurrentNumber = '/';
-            printCalcScript()
-            tempcurrentNumber = '';
-            break;
-        
+          currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+          break;
+      }
     }
-   
+  }
 
-    calcResult.innerHTML = `<p> = ${tempcurrentResult}</p>`;
-    
-    printbool = 0;
-  
-
-
-    
-    
+  currentOperator = operator;
+  currentNumber = operator;
+  printCalcScript();
+  currentNumber = '';
 }
 
-function printCalcScript(){
-   if (printbool === 1){
-    resultScript  = tempcurrentNumber;
-    calcResult.innerHTML = `<p>${resultScript}</p>`;
-   }
-   resultScript  = currentNumber;
-   calcResult.innerHTML = `<p>${resultScript}</p>`;
-   
+function printCalcResult() {
+  tempCurrentResult = currentResult;
+  tempCurrentNumber = currentNumber;
+  tempCurrentOperator = currentOperator;
+  printBool = 1;
+
+  switch (tempCurrentOperator) {
+    case '+':
+      tempCurrentResult = parseFloat(tempCurrentResult) + parseFloat(tempCurrentNumber);
+      break;
+    case '-':
+      tempCurrentResult = parseFloat(tempCurrentResult) - parseFloat(tempCurrentNumber);
+      break;
+    case 'x':
+      tempCurrentResult = parseFloat(tempCurrentResult) * parseFloat(tempCurrentNumber);
+      break;
+    case '/':
+      tempCurrentResult = parseFloat(tempCurrentResult) / parseFloat(tempCurrentNumber);
+      break;
+  }
+
+  calcResult.innerHTML = `<p> = ${tempCurrentResult}</p>`;
+  printBool = 0;
+}
+
+function printCalcScript() {
+  if (printBool === 1) {
+    resultScript = tempCurrentNumber;
+  } else {
+    resultScript = currentNumber;
+  }
+  calcResult.innerHTML = `<p>${resultScript}</p>`;
+  logWrite();
+}
+
+function logWrite() {
+  logDescription.innerHTML += `<p>${currentNumber}</p>`;
 }
 
 function removeAll() {
-    resultScript = '';
-    currentResult = '';
-    currentNumber = '';
-    printCalcScript();
-    temp = 0;
+  resultScript = '';
+  currentResult = '';
+  currentNumber = '';
+  printCalcScript();
+  temp = 0;
 }
-
-for (let i = 0 ; i <= 9 ; i++){
-    const numberButton = document.getElementById(`${i}`);
-    numberButton.addEventListener('click', function() {
-        
-        currentNumber += i;
-        printCalcScript();
-
-    });
-}
-
-
-
-
-
-
-
 
 console.log(currentNumber);
-
-
 
 
