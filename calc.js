@@ -1,6 +1,4 @@
-numbers = document.querySelectorAll("button");
 let currentNumber = '';
-let lastNumber = '';
 const calcResult = document.getElementById('calcResult');
 let resultScript = '';
 let currentResult = 0;
@@ -10,266 +8,148 @@ const subtractBtn = document.getElementById('-');
 const multipleBtn = document.getElementById('x');
 const divideBtn = document.getElementById('/');
 const resultBtn = document.getElementById('=');
+const removeBtn = document.getElementById('c');
 
-let lastScript = '';
-
+removeBtn.addEventListener('click', removeAll);
 addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multipleBtn.addEventListener('click', multiple);
 divideBtn.addEventListener('click', divide);
 resultBtn.addEventListener('click', printCalcResult);
+
 let temp = 0;
-function add() {
+
+function operationProcess(operater){
     if (temp === 0){
         currentResult = currentNumber;
         temp++;
-        currentNumber = '+';
+        currentNumber = `${operater}`;
         printCalcScript()
         currentNumber = '';
     }
     else{
-        switch (currentOperater){
-            case '+':
-                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '+';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '-':
-                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '+';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case 'x':
-                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '+';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '/':
-                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '+';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            
+
+        if (currentNumber !== ''){
+            switch (currentOperater){
+                case '+':
+                    currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
+                    console.log(currentResult);
+                    break;
+                case '-':
+                    currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
+                    console.log(currentResult);
+                case 'x':
+                    currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
+                    console.log(currentResult);
+                    break;
+                case '/':
+                    currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
+                    console.log(currentResult);
+                    break;
+                
+            }
+        
+
         }
+        
+        
     }
-    currentOperater = '+';
-    
-    
-    
+    currentOperater = `${operater}`;
+    currentNumber = `${operater}`;
+    printCalcScript()
+    currentNumber = '';
     console.log(currentResult);
         
-    
+
 }
 
-
+function add() {
+    operationProcess('+');
+}
 function subtract(){
-    if (temp === 0){
-        currentResult = currentNumber;
-        temp++;
-        currentNumber = '-';
-        printCalcScript()
-        currentNumber = '';
-    }
-    else{
-        switch (currentOperater){
-            case '+':
-                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '-';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '-':
-                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '-';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case 'x':
-                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '-';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '/':
-                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '-';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            
-        }
-    }
-    currentOperater = '-';
-    
-    
-    
-    console.log(currentResult);
-
+   operationProcess('-');
 }
-
 function multiple(){
-    if (temp === 0){
-        currentResult = currentNumber;
-        temp++;
-        currentNumber = 'x';
-        printCalcScript()
-        currentNumber = '';
-    }
-    else{
-        switch (currentOperater){
-            case '+':
-                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = 'x';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '-':
-                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = 'x';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case 'x':
-                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = 'x';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '/':
-                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = 'x';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            
-        }
-    }
-    currentOperater = 'x';
-    
-    
-    
-    console.log(currentResult);
-
+    operationProcess('x');
 }
-
 function divide(){
-    if (temp === 0){
-        currentResult = currentNumber;
-        temp++;
-        currentNumber = '/';
-        printCalcScript()
-        currentNumber = '';
-    }
-    else{
-        switch (currentOperater){
-            case '+':
-                currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '/';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '-':
-                currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '/';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case 'x':
-                currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '/';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            case '/':
-                currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-                console.log(currentResult);
-                currentNumber = '/';
-                printCalcScript()
-                currentNumber = '';
-                break;
-            
-        }
-    }
-    currentOperater = '/';
-    
-    
-    
-    console.log(currentResult);
-
+    operationProcess('/');
 }
-
+let printbool = 0;
+let tempcurrentResult;
+let tempcurrentNumber;
+let tempcurrentOperater;
 function printCalcResult(){
 
-    switch (currentOperater){
+    tempcurrentResult = currentResult;
+    tempcurrentNumber = currentNumber;
+    tempcurrentOperater = currentOperater;
+    
+    printbool = 1;
+    
+    
+    switch (tempcurrentOperater){
         case '+':
-            currentResult = parseFloat(currentResult) + parseFloat(currentNumber);
-            console.log(currentResult);
-            currentNumber = '+';
+            tempcurrentResult = parseFloat(tempcurrentResult) + parseFloat(tempcurrentNumber);
+            console.log(tempcurrentResult);
+            tempcurrentNumber = '+';
             printCalcScript()
-            currentNumber = '';
+            tempcurrentNumber = '';
             break;
         case '-':
-            currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
-            console.log(currentResult);
-            currentNumber = '-';
+            tempcurrentResult = parseFloat(tempcurrentResult) - parseFloat(tempcurrentNumber);
+            console.log(tempcurrentResult);
+            tempcurrentNumber = '-';
             printCalcScript()
-            currentNumber = '';
+            tempcurrentNumber = '';
             break;
         case 'x':
-            currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
-            console.log(currentResult);
-            currentNumber = 'x';
+            tempcurrentResult = parseFloat(tempcurrentResult) * parseFloat(tempcurrentNumber);
+            console.log(tempcurrentResult);
+            tempcurrentNumber = 'x';
             printCalcScript()
-            currentNumber = '';
+            tempcurrentNumber = '';
             break;
         case '/':
-            currentResult = parseFloat(currentResult) / parseFloat(currentNumber);
-            console.log(currentResult);
-            currentNumber = '/';
+            tempcurrentResult = parseFloat(tempcurrentResult) / parseFloat(tempcurrentNumber);
+            console.log(tempcurrentResult);
+            tempcurrentNumber = '/';
             printCalcScript()
-            currentNumber = '';
+            tempcurrentNumber = '';
             break;
         
     }
+   
+
+    calcResult.innerHTML = `<p> = ${tempcurrentResult}</p>`;
+    
+    printbool = 0;
+  
 
 
-
-    calcResult.innerHTML = `<p> = ${currentResult}</p>`;
-    resultScript = '';
-    currentResult = 0;
-
+    
+    
 }
 
-
-
 function printCalcScript(){
+   if (printbool === 1){
+    resultScript  = tempcurrentNumber;
+    calcResult.innerHTML = `<p>${resultScript}</p>`;
+   }
    resultScript  = currentNumber;
-
    calcResult.innerHTML = `<p>${resultScript}</p>`;
    
 }
 
+function removeAll() {
+    resultScript = '';
+    currentResult = '';
+    currentNumber = '';
+    printCalcScript();
+    temp = 0;
+}
 
-for (let i = 1 ; i <= 9 ; i++){
+for (let i = 0 ; i <= 9 ; i++){
     const numberButton = document.getElementById(`${i}`);
     numberButton.addEventListener('click', function() {
         
@@ -287,6 +167,8 @@ for (let i = 1 ; i <= 9 ; i++){
 
 
 console.log(currentNumber);
+
+
 
 
 
