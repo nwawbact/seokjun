@@ -66,7 +66,7 @@ function operationProcess(operator) {
       }
     }
   }
-
+//
   currentOperator = operator;
   currentNumber = operator;
   printCalcScript();
