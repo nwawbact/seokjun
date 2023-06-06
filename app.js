@@ -35,7 +35,9 @@ userInput = prompt("당신의 이름은? : ");
 
 if (userInput == ''){
     userInput = 'guest';
-    alert("게스트로 입장하셨습니다.")
+    alert("게스트로 입장하셨습니다.");
+} else if (userInput == null){
+    alert("게스트로 입장하셨습니다.");
 } else if (userInput == '황석준'){
     passwordConfirmation = prompt("비밀번호를 입력하세요");
     if (passwordConfirmation == password){
