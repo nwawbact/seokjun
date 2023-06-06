@@ -1,4 +1,4 @@
-let currentNumber = '';
+let currentNumber = 0;
 const calcResult = document.getElementById('calcResult');
 let resultScript = '';
 let currentResult = 0;
@@ -21,6 +21,12 @@ let temp = 0;
 
 function operationProcess(operater){
     if (temp === 0){
+        if (currentNumber === 0 || currentNumber === ''){
+            alert('지원되지 않는 수식입니다.');
+            currentResult = 0;
+            currentNumber = 0;
+            printCalcScript();
+        }
         currentResult = currentNumber;
         temp++;
         currentNumber = `${operater}`;
@@ -38,6 +44,7 @@ function operationProcess(operater){
                 case '-':
                     currentResult = parseFloat(currentResult) - parseFloat(currentNumber);
                     console.log(currentResult);
+                    break;
                 case 'x':
                     currentResult = parseFloat(currentResult) * parseFloat(currentNumber);
                     console.log(currentResult);
@@ -167,9 +174,5 @@ for (let i = 0 ; i <= 9 ; i++){
 
 
 console.log(currentNumber);
-
-
-
-
 
 
