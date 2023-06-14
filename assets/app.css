@@ -43,3 +43,10 @@ button {
     display: none;
     
 }
+.calc {
+    color: black;
+    background-color: white;
+    background-image: none;
+    width: 60px;
+
+}
