@@ -7,7 +7,7 @@ const hsjBtn = document.getElementById('hsj');
 const userName = document.getElementById('username');
 const greetName = document.getElementById('greeting');
 const calcBtn = document.getElementById('calc');
-const game2048Btn = document.getElementById('2048');
+const game2048Btn = document.getElementById('btn2048');
 
 const historyBtn = document.querySelector('#history');
 
@@ -31,15 +31,15 @@ hsjBtn.addEventListener('click', hsjInformation);
 calcBtn.addEventListener('click', calculater);
 
 function calculater() {
-    window.open("./calc.html" , "계산기");
+    window.open("/calc.html" , "계산기");
 }
 
 function hsjInformation() {
-    window.open("./popup.html", '황석준팝업', 'width=800, height=800');
+    window.open("/popup.html", '황석준팝업', 'width=800, height=800');
 }
 
 function game2048(){
-    window.open("./2048.html");
+    window.open("/2048.html");
 }
 
 alert("hello");
@@ -69,6 +69,8 @@ else{
 }
 
 greetName.innerHTML = `<p>환영합니다, <strong>${userInput}</p>`
+
+
 
 
 
