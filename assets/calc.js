@@ -104,7 +104,11 @@ function printCalcScript() {
   } else {
     resultScript = currentNumber;
   }
-  calcResult.innerHTML = `<p>${resultScript}</p>`;
+  if (resultScript === ''){
+    calcResult.innerHTML = `<p>cleared</p>`;
+  } else{
+    calcResult.innerHTML = `<p>${resultScript}</p>`;
+  }
   logWrite();
 }
 
