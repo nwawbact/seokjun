@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* 폰트 적용 스타일 */
+body {
+  font-family: 'Poppins', sans-serif; /* "Poppins" 폰트 또는 기본 sans-serif 폰트 적용 */
+  font-weight: 700; /* 굵은 글꼴 적용 */
+}
+
+.backgroundgrid {
+    background-color: rgb(175, 175, 175);
+    width: 500px;
+    height: 500px;
+    padding: 6.2px;
+    border-radius: 2%;
+    
+    
+}
+
+.block {
+    background-color: rgb(194, 194, 194);
+    width: 110px;
+    height: 110px;
+    float: left;
+    margin: 7.5px;
+    border-radius: 3%;
+    color: rgb(255, 120, 120)
+}
+
+.cell {
+    background-color: rgb(156, 13, 13);
+    width: 110px;
+    height: 110px;
+    float: left;
+    color:white;
+    font-size: 30;
+    border-radius: 3%;
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    
+}
+.undobutton {
+    margin: 30px;
+    padding: 7px;
+    border-radius: 5%;
+    font-size: 30px;
+    border-color: white;
+    background-color: antiquewhite;
+}
+.restartbutton {
+    margin-top: 30px;
+    padding: 7px;
+    border-radius: 5%;
+    font-size: 30px;
+    border-color: white;
+    background-color: antiquewhite;
+}
+p {
+    color:white;
+    font-size: 30;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes moveAnimation {
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(100px, 100px);
+	}
+}
