@@ -2,68 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #canvas {
-            font-family: monospace;
-        }
-    </style>
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="/assets/app.css">
+    <script src="/assets/2048.js" defer></script>
+
 </head>
 <body>
-    <p>이곳은 아직 준비중입니다.</p>
-    <h3>!</h3>
-    <canvas id="canvas"></canvas>
+    <div class="backgroundgrid">
+        <div class="game-board" id="gameBoard">
+            <div class="row">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            <div class="row">
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+                <div class="block"></div>
+            </div>
+            
 
-    <script>
-        var canvas = document.getElementById("canvas");
-        var ctx = canvas.getContext("2d");
-        var size = 20; // Adjust the size of each star
-        var space = 5; // Adjust the space between stars
-
-        function star(n, x, y) {
-            if (n === 1) {
-                ctx.fillRect(x, y, size, size);
-                ctx.fillRect(x - space, y + size, size, size);
-                ctx.fillRect(x + space, y + size, size, size);
-                ctx.fillRect(x - size, y + 2 * size, size, size);
-                ctx.fillRect(x + size, y + 2 * size, size, size);
-            } else {
-                star(n - 1, x, y);
-                star(n - 1, x - Math.pow(3, n), y + Math.pow(3, n - 1));
-                star(n - 1, x + Math.pow(3, n - 1), y);
-                star(n - 1, x - Math.pow(3, n), y + Math.pow(3, n - 1));
-                star(n - 1, x, y - (2 / 3.0) * Math.pow(3, n));
-            }
-        }
-
-        var n = prompt("Enter the number of iterations:");
-        var canvasSize = Math.pow(3, parseInt(n)) + 1;
-        canvas.width = canvasSize * (size + space) + space;
-        canvas.height = canvasSize * (2 * size) + space;
-
-        star(parseInt(n), space, space);
-
-    </script>
-	
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+        </div>
+        <div>
+           
+        </div>
+        <div style="float: left;">
+            <button type="button" class="restartbutton">new game</button>
+        </div>
+        <div style="float: left;">
+            <button type="button" class="undobutton"><</button>
+        </div>
+        
+    </div>
 
     
 </body>
