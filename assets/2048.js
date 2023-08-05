@@ -481,6 +481,10 @@ function graphics() {
                 blocks[i].firstChild.style.backgroundColor='rgb(211, 35, 35)';
                 blocks[i].firstChild.innerHTML="<div ><p style='font-size:50px; text-align:center' >2048</p></div>"
                 break;
+            default:
+                blocks[i].firstChild.style.backgroundColor='rgb(211, 12, 12)';
+                blocks[i].firstChild.innerHTML=`<div ><p style='font-size:50px; text-align:center' >${array[i]}</p></div>`;
+                break;
             
             
         }
