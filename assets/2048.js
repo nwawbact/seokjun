@@ -110,21 +110,43 @@ restartBtn.addEventListener('click', () =>{
 
 function gameOverChecker() {
     let temp = 0;
-    for (i = 0 ; i < 16 ; i++){
+    /*for (i = 0 ; i < 16 ; i++){
         
-        if (array[i] == array[i+1] || array[i] == array[i-1] || array[i] == array[i+4] || array[i] == array[i-4] || array[i] == 0){
+        if (array[i] == 3 || array[i] == 7 || array[i] == 11 ){
+            if (array[i] === array[i-1] || array[i] === array[i+4] || array[i] === array[i-4] || array[i] === 0){
+                temp++;
+            }
+
+        }
+        else if (array[i] == 4 || array[i] == 8 || array[i] == 12 ){
+            if (array[i] === array[i+1] || array[i] === array[i+4] || array[i] === array[i-4] || array[i] === 0){
+                temp++;
+            }
+        }
+        else if (array[i] === array[i+1] || array[i] === array[i-1] || array[i] === array[i+4] || array[i] === array[i-4] || array[i] === 0){
           
             temp++;
-        
+            console.log(i);
             
         }
+
+
         
+    }*/
+
+    for (i = 0 ; i < 16; i++){
+        if (array[i] != currentArray[i]){
+            temp++;
+        }
     }
+
     if (temp == 0){
         alert("game over!");
         gamestart();
     }
+    console.log("checked", temp);
     temp = 0;
+    
 
 }
 
