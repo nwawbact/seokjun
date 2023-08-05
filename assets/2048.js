@@ -110,7 +110,7 @@ restartBtn.addEventListener('click', () =>{
 
 function gameOverChecker() {
     let temp = 0;
-    /*for (i = 0 ; i < 16 ; i++){
+    for (i = 0 ; i < 16 ; i++){
         
         if (array[i] == 3 || array[i] == 7 || array[i] == 11 ){
             if (array[i] === array[i-1] || array[i] === array[i+4] || array[i] === array[i-4] || array[i] === 0){
@@ -132,13 +132,13 @@ function gameOverChecker() {
 
 
         
-    }*/
+    }
 
-    for (i = 0 ; i < 16; i++){
+    /*for (i = 0 ; i < 16; i++){
         if (array[i] != currentArray[i]){
             temp++;
         }
-    }
+    }*/
 
     if (temp == 0){
         alert("game over!");
