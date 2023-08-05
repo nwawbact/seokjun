@@ -511,4 +511,4 @@ function loadGame() {
     }
     graphics();
 }
-saveGame();
+
