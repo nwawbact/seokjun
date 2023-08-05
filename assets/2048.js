@@ -85,6 +85,12 @@ for (i = 0 ; i < 16 ; i++){
 let undoDid = 0;
 const restartBtn = document.querySelector(".restartbutton");
 const undoBtn = document.querySelector(".undobutton");
+const saveGameBtn = document.querySelector(".savedatabutton");
+const loadGameBtn = document.querySelector(".loaddatabutton");
+
+loadGameBtn.addEventListener('click', loadGame);
+
+saveGameBtn.addEventListener('click', saveGame)
 
 undoBtn.addEventListener('click', () =>{
     if (undodid == 1){
@@ -261,7 +267,7 @@ function rightShift() {
                         break;
                     }
                     else{
-                        continue;
+                        break;
                     }
                     
                 }
@@ -306,7 +312,7 @@ function leftShift() {
                         break;
                     }
                     else{
-                        continue;
+                        break;
                     }
                 }
                 if (array[j] == 0){
@@ -350,7 +356,7 @@ function upShift() {
                         break;
                     }
                     else{
-                        continue;
+                        break;
                     }
                 }
                 if (array[j] == 0){
@@ -396,7 +402,7 @@ function downShift() {
                         break;
                     }
                     else{
-                        continue;
+                        break;
                     }
                 }
                 if (array[j] == 0){
@@ -490,3 +496,19 @@ function graphics() {
         }
     }
 }
+let savedArray = [0,0,0,0,0,0,0,0,0,0,0,0,];
+function saveGame(){
+    localStorage.setItem('localSaveArray', JSON.stringify(array));
+}
+
+
+function loadGame() {
+    let savedData = localStorage.getItem('localSaveArray');
+    savedData = JSON.parse(savedData);
+
+    for (i = 0 ; i < 16 ; i++){
+        array[i] = savedData[i];
+    }
+    graphics();
+}
+saveGame();
