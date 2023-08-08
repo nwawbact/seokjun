@@ -8,26 +8,12 @@ const userName = document.getElementById('username');
 const greetName = document.getElementById('greeting');
 const calcBtn = document.getElementById('calc');
 const game2048Btn = document.getElementById('btn2048');
-
 const historyBtn = document.querySelector('#history');
-
 const historyDiv = document.querySelector('.histories');
 const closeHistoryDiv = document.querySelector('.closehistory');
 
-closeHistoryDiv.addEventListener('click', () => {
-    historyDiv.style.display = 'none';
-
-})
-
-historyBtn.addEventListener('click', () => {
-    historyDiv.style.display = 'block';
-    
-})
-
-
 game2048Btn.addEventListener('click', game2048);
 hsjBtn.addEventListener('click', hsjInformation);
-
 calcBtn.addEventListener('click', calculater);
 
 function calculater() {
@@ -42,12 +28,20 @@ function game2048(){
     window.open("/2048.html");
 }
 
+closeHistoryDiv.addEventListener('click', () => {
+    historyDiv.style.display = 'none';
+
+})
+
+historyBtn.addEventListener('click', () => {
+    historyDiv.style.display = 'block';
+    
+})
+
+
+
 alert("hello");
-
-
 userInput = prompt("당신의 이름은? : ");
-
-
 
 if (userInput == ''){
     userInput = 'guest';
@@ -68,7 +62,9 @@ else{
     alert("대신 더 멋진 걸 보여드리겠습니다.");
 }
 
-greetName.innerHTML = `<p>환영합니다, <strong>${userInput}</p>`
+greetName.innerHTML = `<p>&nbsp;&nbsp;&nbsp;&nbsp;Welcome, <strong>${userInput}</p>`
+
+
 
 
 
